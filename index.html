@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1 onmouseover="displayPopup()">Jyothirmai's Portfolio</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a onclick="changeContent('home')">Home</a></li>
+            <li><a onclick="changeContent('items')">Items</a></li>
+            <li><a onclick="changeContent('history')">History</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <div class="content" id="content">
+                <div class="section-1" id="home">
+                    <h1>Hi, I am Jyothirmai</h1>
+                    <h3>FrontEnd Web Developer</h3>
+                    <p>High Level Experience in web design and development knowledge, producing quality work</p>
+                    <a href="../assets/resume.pdf" class="btn">Download CV</a>
+                    <button onclick="changeColorScheme()">Change Color Scheme</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Jyothi Webiste</p>
+    </footer>
+    <script>
+        function displayPopup() {
+            alert("Welcome to our website!");
+        }
+        function changeColorScheme() {
+            // Generate random RGB values
+            var randomRed = Math.floor(Math.random() * 256);
+            var randomGreen = Math.floor(Math.random() * 256);
+            var randomBlue = Math.floor(Math.random() * 256);
+
+            // Combine RGB values into a CSS color string
+            var randomColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
+
+            // Set the background color of the colorBox element
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function addItem() {
+            if (document.getElementById('newItem')) {
+                var newItemText = document.getElementById('newItem').value;
+                if (newItemText.trim() !== '') {
+                    var newListElement = document.createElement('li');
+                    newListElement.appendChild(document.createTextNode(newItemText));
+                    document.getElementById('sidebarList').appendChild(newListElement);
+                }
+            }
+        }
+         function removeItem() {
+            var sidebarList = document.getElementById('sidebarList');
+            if (sidebarList.childNodes.length > 0) {
+                sidebarList.removeChild(sidebarList.lastChild);
+            }
+        }
+        function changeContent(section) {
+            if (section == 'home') {
+                console.log(document.getElementById('content'));
+                document.getElementById('content').innerHTML = ` <div class="section-1" id="home">
+                    <h1>Hi, I am Jyothirmai</h1>
+                    <h3>FrontEnd Web Developer</h3>
+                    <p>High Level Experience in web design and development knowledge, producing quality work</p>
+                    <a href="../assets/resume.pdf" class="btn">Download CV</a>
+                    <button onclick="changeColorScheme()">Change Color Scheme</button>
+                </div>`;
+            } else if (section === 'items') {
+                document.getElementById('content').innerHTML =
+                    `<div class="section-2" id="items">
+                    <ul id="sidebarList">
+                        <li onclick="changeContent('Section 1')">Item 1</li>
+                        <li onclick="changeContent('Section 2')">Item 2</li>
+                        <!-- Add more items dynamically -->
+                    </ul>
+                    <input type="text" id="newItem" placeholder="New Item">
+                    <div class="items-div">
+                        <button onclick="addItem()">Add Item</button>
+                        <button onclick="removeItem()">Remove Item</button>
+                    </div>
+                </div>`
+            } else if (section === 'history') {
+                document.getElementById('content').innerHTML =
+                    `<div class="section-3" id="history">
+                    <div>
+                        <h1>Education and Job History</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Institution / Company</th>
+                                    <th>Qualification / Position</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2014 - 2018</td>
+                                    <td>Andhra University</td>
+                                    <td>Bachelor's Degree in Information Technology</td>
+                                </tr>
+                                <tr>
+                                    <td>Mar-2019 - Feb-2020</td>
+                                    <td>Suraaga Technologies Pvt Ltd</td>
+                                    <td>Full Stack Developer</td>
+                                </tr>
+                                <tr>
+                                    <td>Mar-2020 - Jul-2022</td>
+                                    <td>Appit Ventures Pvt Ltd</td>
+                                    <td>React Developer</td>
+                                </tr>
+                                <tr>
+                                    <td>Aug-2022 - Jun-2023</td>
+                                    <td>Aubergine Solutions</td>
+                                    <td>Software Engineer-II</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>`
+            }
+        }
+       
+    </script>
+</body>
+
+</html>

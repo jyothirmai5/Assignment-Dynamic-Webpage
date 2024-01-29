@@ -1,0 +1,209 @@
+/* Reset some default styles and set a basic font size */
+body,
+h1,
+h2,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'CroissantOne-Regular';
+    /* Give your font a name */
+    src: url('./CroissantOne-Regular.ttf') format('ttf')
+}
+
+body {
+    font-size: 16px;
+    font-family: 'CroissantOne-Regular', sans-serif;
+}
+
+/* Basic styling for header, nav, and footer */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav {
+    background-color: #555;
+    color: #fff;
+    width: 250px;
+    /* Set a fixed width for the sidebar */
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    padding: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    margin-left: 260px;
+    /* Leave space for the sidebar */
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    nav {
+        width: 100%;
+        /* Make the sidebar full-width on smaller screens */
+        position: static;
+    }
+
+    main {
+        margin: 0;
+        /* Reset margin on smaller screens */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content .section-1 {
+        width: 100% !important;
+    }
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 70vh;
+}
+
+.content .section-1 {
+    position: relative;
+    width: 40%;
+}
+
+.content .section-2 {
+    position: relative;
+    width: 40%;
+}
+
+.content .section-2 img {
+    margin-top: 10px;
+    border-radius: 12px;
+}
+
+.content .section-1 h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #000;
+}
+
+.content .section-1 h3 {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.content .section-1 p {
+    font-size: 15px;
+    color: #505052;
+    margin-bottom: 50px;
+}
+
+.content .btn {
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #3498db;
+    border: 3px solid #3498db;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.content .btn:hover {
+    background-color: #fff;
+    color: #3498db;
+
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.content .project-list {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+iframe {
+    width: 100%;
+}
+
+li {
+    cursor: pointer;
+}
+
+input {
+    min-width: 280px;
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 15px;
+    border: 2px solid #3498db;
+    padding: 5px;
+}
+
+button {
+    flex: 1;
+    min-width: 300px;
+    height: 3.5rem;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 15px;
+    font-size: 1rem;
+    margin-top: 40px;
+
+    &:hover {
+        background-color: #3498db;
+        color: white;
+    }
+}
+
+.items-div {
+    display: flex;
+    gap: 30px;
+}
